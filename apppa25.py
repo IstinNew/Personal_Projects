@@ -33,7 +33,27 @@ if sections == "Persönliche Informationen":
 # Tasks Section
 elif sections == "Aufgaben":
     st.header("Aufgaben")
-    tasks = st.text_area("Aufgaben:", "- Erstellung und Verwaltung von GeoDin-Datenbanken\n- Durchführung von GIS-Analysen mit ArcGIS\n- Erstellung von Karten und Berichten für verschiedene Projekte\n- Datenimport aus Monitoring Report, SensorWeb, Excel Tabulation, Sorting, Datenlogger\n- Teamarbeit mit Daniel, Diskussionen mit Clemens und Volker\n- Unterstützung der Projektassistenz mit Franziska, regelmäßige Updates mit Michaela\n- Projektorientierungsrunde mit Daniel für Gabriel Knorr (Halle Team) für GeoDin, GIS, WebGIS, Survey123-App, SENSOweb")
+    
+    # Sample data for tasks and their distribution
+    tasks = {
+        'Task': ['Task A', 'Task B', 'Task C', 'Task D'],
+        'Importance': [5, 3, 4, 2],
+        'Hours per Week': [10, 8, 12, 6]
+    }
+
+    # Convert the dictionary to a DataFrame
+    df_tasks = pd.DataFrame(tasks)
+
+    # Display the table of tasks and their distribution
+    st.subheader('Table of Tasks and Their Distribution')
+    st.table(df_tasks)
+
+    # Display a heatmap of the task distribution
+    st.subheader('Heatmap of Task Distribution')
+    heatmap_data = df_tasks.pivot_table(index='Task', columns='Importance', values='Hours per Week')
+    sns.heatmap(heatmap_data, annot=True, cmap='coolwarm')
+    plt.title('Heatmap of Task Distribution')
+    st.pyplot(plt)
 
 # Project Works Section
 elif sections == "Projektarbeiten":
@@ -50,6 +70,7 @@ elif sections == "Projektarbeiten":
 # Team Contributions Section
 elif sections == "Teambeiträge":
     st.header("Teambeiträge")
+    
     team_contributions = {
         'Contribution': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
@@ -59,23 +80,29 @@ elif sections == "Teambeiträge":
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Frequency': [15, 12, 10, 8, 6, 4]
+        'Hours per Week': [6, 8, 10, 12, 4, 40]
     }
+    
     df_contributions = pd.DataFrame(team_contributions)
     
-    # Sort the dataframe by frequency in descending order
-    df_contributions = df_contributions.sort_values(by='Frequency', ascending=False)
+    # Calculate the percentage of hours used per week
+    total_hours = sum(df_contributions['Hours per Week'])
+    df_contributions['Percentage of Hours'] = (df_contributions['Hours per Week'] / total_hours) * 100
+    
+    # Sort the dataframe by percentage of hours in descending order
+    df_contributions = df_contributions.sort_values(by='Percentage of Hours', ascending=False)
     
     fig, ax = plt.subplots(figsize=(6, 4))
-    bars = ax.barh(df_contributions['Contribution'], df_contributions['Frequency'], color=bar_colors)
-    ax.set_xlabel('Häufigkeit')
+    bars = ax.barh(df_contributions['Contribution'], df_contributions['Percentage of Hours'], color=bar_colors)
+    ax.set_xlabel('Percentage of Hours')
     ax.set_title('Teambeiträge')
     
     # Add summary info table next to the graph in the same order as the graph
     summary_data = {
         'Contribution': df_contributions['Contribution'],
-        'Frequency': df_contributions['Frequency']
+        'Percentage of Hours': df_contributions['Percentage of Hours']
     }
+    
     df_summary = pd.DataFrame(summary_data)
     
     col1, col2 = st.columns([2, 1])
@@ -95,6 +122,7 @@ elif sections == "Schulungen":
         'Schulung': ['GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
         'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
+    
     df_onboarding = pd.DataFrame(onboarding_trainings)
     
     # Work Project Trainings
@@ -102,6 +130,7 @@ elif sections == "Schulungen":
         'Schulung': ['SLPS_PA4_PA5 MA Einführung', 'SLPS_PA4_5 Workshop Ersteller', 'Projekt SuedLink obligatorische Datenschutzschulung'],
         'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
+    
     df_work_project = pd.DataFrame(work_project_trainings)
     
     st.subheader("Onboarding-Schulungen")
