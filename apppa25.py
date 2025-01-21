@@ -44,7 +44,7 @@ elif sections == "Aufgaben":
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Importance': [5, 3, 4, 2, 1, 1],
+        'Importance': [5, 4, 3, 3, 2, 1],
         'Hours per Week': [20, 6, 5, 4, 3, 2]
     }
 
