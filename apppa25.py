@@ -10,6 +10,9 @@ arcadis_colors = {
     "text": "#333333"           # Dark Gray
 }
 
+# Define varying colors for the bar chart
+bar_colors = ["#6A5ACD", "#4682B4", "#9ACD32", "#32CD32", "#FFD700", "#FF69B4"]
+
 # Title and Introduction
 st.set_page_config(page_title="Probezeit-Gespräch", page_icon=":clipboard:", layout="wide", initial_sidebar_state="expanded")
 st.title("Probezeit-Gespräch nach 3 Monaten")
@@ -52,7 +55,7 @@ elif sections == "Teambeiträge":
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
             'Projektkoordination in-company mit Gabriel Knorr',
             'Projektkoordination extern mit dem Team von UIT',
-            'Projektassistenzarbeit mit Franziska Häuser',
+            'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
         'Frequency': [15, 12, 10, 8, 6, 4]
@@ -62,12 +65,25 @@ elif sections == "Teambeiträge":
     # Sort the dataframe by frequency in descending order
     df_contributions = df_contributions.sort_values(by='Frequency', ascending=False)
     
-    fig, ax = plt.subplots(figsize=(8, 6))
-    ax.barh(df_contributions['Contribution'], df_contributions['Frequency'], color=arcadis_colors['primary'])
+    fig, ax = plt.subplots(figsize=(6, 4))
+    bars = ax.barh(df_contributions['Contribution'], df_contributions['Frequency'], color=bar_colors)
     ax.set_xlabel('Häufigkeit')
     ax.set_title('Teambeiträge')
     
-    st.pyplot(fig)
+    # Add summary info table next to the graph
+    summary_data = {
+        'Contribution': df_contributions['Contribution'],
+        'Frequency': df_contributions['Frequency']
+    }
+    df_summary = pd.DataFrame(summary_data)
+    
+    col1, col2 = st.columns([2, 1])
+    
+    with col1:
+        st.pyplot(fig)
+    
+    with col2:
+        st.table(df_summary)
 
 # Trainings Section
 elif sections == "Schulungen":
