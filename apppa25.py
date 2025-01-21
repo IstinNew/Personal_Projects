@@ -11,7 +11,7 @@ arcadis_colors = {
 # Title and Introduction
 st.set_page_config(page_title="Probezeit-Gespräch", page_icon=":clipboard:", layout="wide", initial_sidebar_state="expanded")
 st.title("Probezeit-Gespräch nach 3 Monaten")
-st.write("Hier ist eine Übersicht Ihrer Leistungen und Fortschritte während der Probezeit.")
+st.write("Übersicht : Leistungen und Fortschritte")
 
 # Navigation Sidebar for Clickable Sections
 st.sidebar.title("Navigation")
