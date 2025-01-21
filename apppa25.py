@@ -39,11 +39,13 @@ elif sections == "Aufgaben":
         'Task': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
+            'Projektkoordination extern mit dem Team von UIT',
             'Projektkoordination in-company mit Gabriel Knorr',
-            'Projektkoordination extern mit dem Team von UIT'
+            'Projektassistenzarbeit, In-Office Meetings usw.',
+            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Importance': [5, 3, 4, 2],
-        'Hours per Week': [12, 10, 8, 6]
+        'Importance': [5, 3, 4, 2, 1, 1],
+        'Hours per Week': [20, 6, 5, 4, 3, 2]
     }
 
     # Convert the dictionary to a DataFrame
@@ -81,19 +83,15 @@ elif sections == "Teambeiträge":
         'Contribution': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
-            'Projektkoordination in-company mit Gabriel Knorr',
             'Projektkoordination extern mit dem Team von UIT',
+            'Projektkoordination in-company mit Gabriel Knorr',
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Hours per Week': [12, 10, 8, 6, 4, 40]
+        'Percentage of Hours': [50, 15, 12.5, 10, 7.5, 5]
     }
     
     df_contributions = pd.DataFrame(team_contributions)
-    
-    # Calculate the percentage of hours used per week
-    total_hours = sum(df_contributions['Hours per Week'])
-    df_contributions['Percentage of Hours'] = (df_contributions['Hours per Week'] / total_hours) * 100
     
     # Sort the dataframe by percentage of hours in descending order
     df_contributions = df_contributions.sort_values(by='Percentage of Hours', ascending=False)
