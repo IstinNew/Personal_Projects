@@ -48,21 +48,24 @@ elif sections == "Teambeiträge":
     st.header("Teambeiträge")
     team_contributions = {
         'Contribution': [
-            'Lunch time Discussions with Sven Namyslik, Volker Ackermann, Michaela Pohle',
-            'Project Assistance work with Franziska Häuser',
-            'Project Coordination work in-house with Clemens Neupert, Daniel Kahsay',
-            'In-company with Gabriel Knorr',
-            'External with team from UIT',
-            'Data Analysis and Handling on GeoDin, ArcGIS and so on'
+            'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
+            'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
+            'Projektkoordination in-company mit Gabriel Knorr',
+            'Projektkoordination extern mit dem Team von UIT',
+            'Projektassistenzarbeit mit Franziska Häuser',
+            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Frequency': [10, 8, 6, 4, 3, 7]
+        'Frequency': [15, 12, 10, 8, 6, 4]
     }
     df_contributions = pd.DataFrame(team_contributions)
     
+    # Sort the dataframe by frequency in descending order
+    df_contributions = df_contributions.sort_values(by='Frequency', ascending=False)
+    
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.barh(df_contributions['Contribution'], df_contributions['Frequency'], color=arcadis_colors['primary'])
-    ax.set_xlabel('Frequency')
-    ax.set_title('Team Contributions')
+    ax.set_xlabel('Häufigkeit')
+    ax.set_title('Teambeiträge')
     
     st.pyplot(fig)
 
@@ -72,15 +75,15 @@ elif sections == "Schulungen":
     
     # Onboarding Trainings
     onboarding_trainings = {
-        'Training': ['GeoDin', 'Health & Safety', 'Virtual Onboarding', 'Thema Marketing'],
-        'Status': ['Completed', 'Completed', 'Completed', 'Completed']
+        'Schulung': ['GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     df_onboarding = pd.DataFrame(onboarding_trainings)
     
     # Work Project Trainings
     work_project_trainings = {
-        'Training': ['SLPS_PA4_PA5 MA Einführung', 'SLPS_PA4_5 Workshop Ersteller', 'Projekt SuedLink obligatorische Datenschutzschulung'],
-        'Status': ['Completed', 'Completed', 'Completed']
+        'Schulung': ['SLPS_PA4_PA5 MA Einführung', 'SLPS_PA4_5 Workshop Ersteller', 'Projekt SuedLink obligatorische Datenschutzschulung'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     df_work_project = pd.DataFrame(work_project_trainings)
     
