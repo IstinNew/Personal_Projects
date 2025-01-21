@@ -20,9 +20,9 @@ sections = st.sidebar.radio("Sections", ["Persönliche Informationen", "Aufgaben
 # Personal Information Section
 if sections == "Persönliche Informationen":
     st.header("Persönliche Informationen")
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**Name:** Vorname</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**Eintrittsdatum:**</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**Name der Führungskraft:**</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**Majumder,** Shayak</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**01.01.2025Eintrittsdatum:**</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>**Soldner, Dennis**</p>", unsafe_allow_html=True)
 
 # Tasks and Achievements Section
 elif sections == "Aufgaben und Erfolge":
