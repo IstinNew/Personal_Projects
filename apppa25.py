@@ -70,7 +70,7 @@ elif sections == "Teambeiträge":
     ax.set_xlabel('Häufigkeit')
     ax.set_title('Teambeiträge')
     
-    # Add summary info table next to the graph
+    # Add summary info table next to the graph in the same order as the graph
     summary_data = {
         'Contribution': df_contributions['Contribution'],
         'Frequency': df_contributions['Frequency']
