@@ -13,7 +13,7 @@ arcadis_colors = {
 # Title and Introduction
 st.set_page_config(page_title="Probezeit-Gespräch", page_icon=":clipboard:", layout="wide", initial_sidebar_state="expanded")
 st.title("Probezeit-Gespräch nach 3 Monaten")
-st.write("Hier ist eine Übersicht Ihrer Leistungen und Fortschritte während der Probezeit.")
+st.write("Übersicht : Leistungen und Fortschritte")
 
 # Navigation Sidebar for Clickable Sections
 st.sidebar.title("Navigation")
@@ -47,12 +47,19 @@ elif sections == "Projektarbeiten":
 elif sections == "Teambeiträge":
     st.header("Teambeiträge")
     team_contributions = {
-        'Contribution': ['Datenanalyse', 'Projektkoordination', 'Projektassistenz', 'Mittagspause Diskussionen'],
-        'Frequency': [10, 8, 6, 4]
+        'Contribution': [
+            'Lunch time Discussions with Sven Namyslik, Volker Ackermann, Michaela Pohle',
+            'Project Assistance work with Franziska Häuser',
+            'Project Coordination work in-house with Clemens Neupert, Daniel Kahsay',
+            'In-company with Gabriel Knorr',
+            'External with team from UIT',
+            'Data Analysis and Handling on GeoDin, ArcGIS and so on'
+        ],
+        'Frequency': [10, 8, 6, 4, 3, 7]
     }
     df_contributions = pd.DataFrame(team_contributions)
     
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8, 6))
     ax.barh(df_contributions['Contribution'], df_contributions['Frequency'], color=arcadis_colors['primary'])
     ax.set_xlabel('Frequency')
     ax.set_title('Team Contributions')
