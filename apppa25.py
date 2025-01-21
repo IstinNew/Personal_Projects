@@ -36,9 +36,14 @@ elif sections == "Aufgaben":
     
     # Sample data for tasks and their distribution
     tasks = {
-        'Task': ['Task A', 'Task B', 'Task C', 'Task D'],
+        'Task': [
+            'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
+            'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
+            'Projektkoordination in-company mit Gabriel Knorr',
+            'Projektkoordination extern mit dem Team von UIT'
+        ],
         'Importance': [5, 3, 4, 2],
-        'Hours per Week': [10, 8, 12, 6]
+        'Hours per Week': [12, 10, 8, 6]
     }
 
     # Convert the dictionary to a DataFrame
@@ -50,6 +55,7 @@ elif sections == "Aufgaben":
 
     # Display a heatmap of the task distribution
     st.subheader('Heatmap of Task Distribution')
+    plt.figure(figsize=(6, 4))
     heatmap_data = df_tasks.pivot_table(index='Task', columns='Importance', values='Hours per Week')
     sns.heatmap(heatmap_data, annot=True, cmap='coolwarm')
     plt.title('Heatmap of Task Distribution')
@@ -80,7 +86,7 @@ elif sections == "Teambeiträge":
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
         ],
-        'Hours per Week': [6, 8, 10, 12, 4, 40]
+        'Hours per Week': [12, 10, 8, 6, 4, 40]
     }
     
     df_contributions = pd.DataFrame(team_contributions)
