@@ -114,6 +114,11 @@ elif sections == "Projektarbeiten":
         {"Projekt Nummer": "30071610", "Kategorie": "SL PA5_Monitoringkonzept Phase 1.2 C2, 4610"}
     ]
     
+    # Display Project Work List
+    st.subheader("Projektliste")
+    for project in project_work_list:
+        st.write(f"Projekt Nummer: {project['Projekt Nummer']}, Kategorie: {project['Kategorie']}")
+    
     # Tasks List Data with main section, sub sections and tasks under it
     tasks_list = [
         {"main_section": "GeoDin Arbeiten", 
@@ -123,11 +128,11 @@ elif sections == "Projektarbeiten":
          ]},
         {"main_section": "GIS Arbeiten",
          "tasks": [
-             "Bereitstellung von Kilometrierungsdaten (PFU, km50, km100)",
-             "Erfassung von Muffengruben (DV, PFU und Standort)",
-             "Identifizierung von Versickerungsflächen",
-             "Analyse von Altlastenflächen (keine Relevanz bis Gefährdungsabschätzung)",
-             "Trassenplanung und Wasserhaltungsmanagement"
+             "GIS Daten bereitstellen",
+             "Arbeiten mit Feature Classes",
+             "Verwendung von Shapefiles",
+             "Erstellung und Bearbeitung von Karten",
+             "Analyse und Visualisierung von GIS-Daten"
          ]},
         {"main_section": "Monitoringbericht H2/24",
          "tasks": [
