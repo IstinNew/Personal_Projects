@@ -29,6 +29,48 @@ if sections == "Persönliche Informationen":
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Majumder, Shayak</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Soldner, Dennis</p>", unsafe_allow_html=True)
+    
+    # Additional Personal Information
+    st.markdown("""
+        <style>
+        .personal-info {
+            margin-top: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .personal-info h2 {
+            margin-top: 0;
+        }
+        .personal-info p {
+            margin: 10px 0;
+        }
+        .personal-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .personal-info ul li {
+            margin: 10px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="personal-info">
+            <h2>Personal Information</h2>
+            <p>🏛️ When I am off-work, find me at:</p>
+            <ul>
+                <li>📚 Terra Mineralia, Freiberg: Proudly showcasing from over 3,000 handpicked minerals out of a collection of 80,000, engaging with guests in multiple languages 🌐.</li>
+                <li>🌿 Volunteer Support for NABU-Naturschutzstation Freiberg</li>
+                <li>👨‍🏫 Student Mentor & Coach at WBS Coding School Berlin</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
 
 # Tasks Section
 elif sections == "Aufgaben":
