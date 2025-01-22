@@ -64,7 +64,7 @@ if sections == "Persönliche Informationen":
         <div class="personal-info">
             <p>🏛️ When I am off-work, find me at:</p>
             <ul>
-                <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Showcasing minerals, engaging guests 🌐.</li>
+                <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Mehrsprachiger Reiseleiter : Showcasing minerals, engaging guests 🌐.</li>
                 <li>🌿 <a href="https://freiberg.nabu-sachsen.de/" target="_blank">Volunteer Support for NABU-Naturschutzstation Freiberg</a>: Environmental conservation activities.</li>
                 <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Coach at WBS Coding School Berlin</a>: Mentoring and coaching students.</li>
             </ul>
