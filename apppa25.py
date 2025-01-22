@@ -114,15 +114,21 @@ elif sections == "Projektarbeiten":
         {"Projekt Nummer": "30071610", "Kategorie": "SL PA5_Monitoringkonzept Phase 1.2 C2, 4610"}
     ]
     
-    # Tasks List Data
+    # Tasks List Data with main section, sub sections and tasks under it
     tasks_list = [
-        "GeoDin Arbeiten",
-        "Datenimport aus Monitoring Report, Excel Tabulation, Sorting, Datenlogger",
-        "Datenimport aus SensorWeb, Excel Tabulation, Sorting, Datenlogger",
-        "GIS Arbeiten",
-        "GIS Daten (z. B.: Trasse/Querungen, Baulosgrenzen usw.) bereitstellen",
-        "Monitoringbericht H2/24",
-        "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
+        {"main_section": "GeoDin Arbeiten", 
+         "tasks": [
+             "Datenimport aus Monitoring Report, Excel Tabulation, Sorting, Datenlogger",
+             "Datenimport aus SensorWeb, Excel Tabulation, Sorting, Datenlogger"
+         ]},
+        {"main_section": "GIS Arbeiten",
+         "tasks": [
+             "GIS Daten (z. B.: Trasse/Querungen, Baulosgrenzen usw.) bereitstellen"
+         ]},
+        {"main_section": "Monitoringbericht H2/24",
+         "tasks": [
+             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
+         ]}
     ]
     
     # Convert project work list to DataFrame
@@ -132,11 +138,13 @@ elif sections == "Projektarbeiten":
     st.subheader('Projektliste')
     st.table(df_project_work)
     
-    # Display tasks list in a bulleted list format
+    # Display tasks list in a structured format with main section and sub sections
     st.subheader('Aufgabenliste')
     
-    for task in tasks_list:
-        st.markdown(f"- {task}")
+    for section in tasks_list:
+        st.markdown(f"**{section['main_section']}**")
+        for task in section['tasks']:
+            st.markdown(f"- {task}")
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
