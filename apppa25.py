@@ -123,7 +123,24 @@ elif sections == "Projektarbeiten":
          ]},
         {"main_section": "GIS Arbeiten",
          "tasks": [
-             "GIS Daten (z. B.: Trasse/Querungen, Baulosgrenzen usw.) bereitstellen"
+             "Kilometrierung: PFU, km50, km100, km50",
+             "Muffengruben: DV, PFU und Standort",
+             "Versickerungsflächen",
+             "Altlastenflächen: keine Relevanz, mögliche Relevanz, Gefährdungsabschätzung",
+             "Trassen:",
+             "- Vorzugstrassen: offene Bauweise (Graben, Querungs usw.), geschlossene Bauweise (HDD, Microtunnel, Pilotvortrieb, E-Power Pipe usw.)",
+             "- Bauweisetrassen",
+             "- Alternativtrassen",
+             "Wasserhaltung:",
+             "- Leitung",
+             "Baulos:",
+             "- Zuwegung",
+             "- Spartenknoten",
+             "- Spartenleitung (Trinkwasser, Regenwasser, Schmutzwasser, Mischwasser, Kabel, Gas, Telekom usw.)",
+             "- Segmentstreifen",
+             "- Korridor",
+             "- Bauwerksflaechen",
+             "- Arbeitsstreifen"
          ]},
         {"main_section": "Monitoringbericht H2/24",
          "tasks": [
