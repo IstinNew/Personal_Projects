@@ -114,10 +114,12 @@ elif sections == "Projektarbeiten":
         {"Projekt Nummer": "30071610", "Kategorie": "SL PA5_Monitoringkonzept Phase 1.2 C2, 4610"}
     ]
     
-    # Display Project Work List
-    st.subheader("Projektliste")
-    for project in project_work_list:
-        st.write(f"Projekt Nummer: {project['Projekt Nummer']}, Kategorie: {project['Kategorie']}")
+    # Convert project work list to DataFrame
+    df_project_work = pd.DataFrame(project_work_list)
+    
+    # Display project work list in a table format
+    st.subheader('Projektliste')
+    st.table(df_project_work)
     
     # Tasks List Data with main section, sub sections and tasks under it
     tasks_list = [
@@ -140,13 +142,6 @@ elif sections == "Projektarbeiten":
          ]}
     ]
     
-    # Convert project work list to DataFrame
-    df_project_work = pd.DataFrame(project_work_list)
-    
-    # Display project work list in a table format
-    st.subheader('Projektliste')
-    st.table(df_project_work)
-    
     # Display tasks list in a structured format with main section and sub sections
     st.subheader('Aufgabenliste')
     
@@ -154,6 +149,7 @@ elif sections == "Projektarbeiten":
         st.markdown(f"**{section['main_section']}**")
         for task in section['tasks']:
             st.markdown(f"- {task}")
+
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
