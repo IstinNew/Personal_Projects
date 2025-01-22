@@ -26,8 +26,8 @@ sections = st.sidebar.radio("Sections", ["Persönliche Informationen", "Aufgaben
 # Personal Information Section
 if sections == "Persönliche Informationen":
     st.header("Persönliche Informationen")
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Majumder, Shayak</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name: Majumder, Shayak</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Soldner, Dennis</p>", unsafe_allow_html=True)
     
     # Additional Personal Information
@@ -66,7 +66,7 @@ if sections == "Persönliche Informationen":
             <ul>
                 <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Showcasing minerals, engaging guests 🌐.</li>
                 <li>🌿 <a href="https://freiberg.nabu-sachsen.de/" target="_blank">Volunteer Support for NABU-Naturschutzstation Freiberg</a>: Environmental conservation activities.</li>
-                <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Alumni at WBS Coding School Berlin</a>: Mentoring and coaching students.</li>
+                <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Coach at WBS Coding School Berlin</a>: Mentoring and coaching students.</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -107,14 +107,36 @@ elif sections == "Aufgaben":
 # Project Works Section
 elif sections == "Projektarbeiten":
     st.header("Projektarbeiten")
-    project_data = {
-        "Projekt Nummer": ["30071603", "30071610"],
-        "Kategorie": ["SL PA4_Monitoring_Phase 1.2 B3, C1 4610", "SL PA5_Monitoringkonzept Phase 1.2 C2, 4610"],
-        "Aufgabenknoten": ["PA4 – 30071603\nSL_PA4_AP Monitoring Phase 2.0 Los 1 B3_0621 13010\nSL_PA4_AP Monitoring Phase 2.0 Los 2 C1_0622 14020",
-                           "PA5 – 30071610\nSL_PA5_AP Monitoring Phase 2.0 Los 3 C2_0623 13010\nSL_PA5_AP Monitoring Phase 2.0 Los 4 C2_0624 14020"]
-    }
-    df = pd.DataFrame(project_data)
-    st.table(df)
+    
+    # Project Work List Data
+    project_work_list = [
+        {"Projekt Nummer": "30071603", "Kategorie": "SL PA4_Monitoring_Phase 1.2 B3, C1 4610"},
+        {"Projekt Nummer": "30071610", "Kategorie": "SL PA5_Monitoringkonzept Phase 1.2 C2, 4610"}
+    ]
+    
+    # Tasks List Data
+    tasks_list = [
+        "GeoDin Arbeiten",
+        "Datenimport aus Monitoring Report, Excel Tabulation, Sorting, Datenlogger",
+        "Datenimport aus SensorWeb, Excel Tabulation, Sorting, Datenlogger",
+        "GIS Arbeiten",
+        "GIS Daten (z. B.: Trasse/Querungen, Baulosgrenzen usw.) bereitstellen",
+        "Monitoringbericht H2/24",
+        "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
+    ]
+    
+    # Convert project work list to DataFrame
+    df_project_work = pd.DataFrame(project_work_list)
+    
+    # Display project work list in a table format
+    st.subheader('Projektliste')
+    st.table(df_project_work)
+    
+    # Display tasks list in a bulleted list format
+    st.subheader('Aufgabenliste')
+    
+    for task in tasks_list:
+        st.markdown(f"- {task}")
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
