@@ -26,8 +26,8 @@ sections = st.sidebar.radio("Sections", ["Persönliche Informationen", "Aufgaben
 # Personal Information Section
 if sections == "Persönliche Informationen":
     st.header("Persönliche Informationen")
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name: Majumder, Shayak</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Majumder, Shayak</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'>Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Soldner, Dennis</p>", unsafe_allow_html=True)
     
     # Additional Personal Information
@@ -65,9 +65,9 @@ if sections == "Persönliche Informationen":
             <h2>Personal Information</h2>
             <p>🏛️ When I am off-work, find me at:</p>
             <ul>
-                <li>📚 Terra Mineralia, Freiberg: Proudly showcasing from over 3,000 handpicked minerals out of a collection of 80,000, engaging with guests in multiple languages 🌐.</li>
-                <li>🌿 Volunteer Support for NABU-Naturschutzstation Freiberg</li>
-                <li>👨‍🏫 Student Mentor & Coach at WBS Coding School Berlin</li>
+                <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Proudly showcasing from over 3,000 handpicked minerals out of a collection of 80,000, engaging with guests in multiple languages 🌐.</li>
+                <li>🌿 <a href="https://freiberg.nabu-sachsen.de/" target="_blank">Volunteer Support for NABU-Naturschutzstation Freiberg</a></li>
+                <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Coach at WBS Coding School Berlin</a></li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
