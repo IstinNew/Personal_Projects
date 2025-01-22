@@ -62,12 +62,11 @@ if sections == "Persönliche Informationen":
 
     st.markdown("""
         <div class="personal-info">
-            <h2>Personal Information</h2>
             <p>🏛️ When I am off-work, find me at:</p>
             <ul>
-                <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Proudly showcasing from over 3,000 handpicked minerals out of a collection of 80,000, engaging with guests in multiple languages 🌐.</li>
-                <li>🌿 <a href="https://freiberg.nabu-sachsen.de/" target="_blank">Volunteer Support for NABU-Naturschutzstation Freiberg</a></li>
-                <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Coach at WBS Coding School Berlin</a></li>
+                <li>📚 <a href="https://www.terra-mineralia.de/" target="_blank">Terra Mineralia, Freiberg</a>: Showcasing minerals, engaging guests 🌐.</li>
+                <li>🌿 <a href="https://freiberg.nabu-sachsen.de/" target="_blank">Volunteer Support for NABU-Naturschutzstation Freiberg</a>: Environmental conservation activities.</li>
+                <li>👨‍🏫 <a href="https://www.wbscodingschool.com/" target="_blank">Student Mentor & Coach at WBS Coding School Berlin</a>: Mentoring and coaching students.</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
