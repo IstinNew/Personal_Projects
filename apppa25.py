@@ -247,8 +247,8 @@ if sections == "Schulungen":
 
     # On-boarding Certifications
     onboarding_certifications = {
-        'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice'],
-        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
+        'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice', 'Certified Mentoring Program 2025'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     
     df_onboarding_certifications = pd.DataFrame(onboarding_certifications)
