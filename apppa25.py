@@ -72,7 +72,7 @@ if sections == "Persönliche Informationen":
         """, unsafe_allow_html=True)
 
 # Tasks Section
-elif sections == "Aufgaben":
+if sections == "Aufgaben":
     st.header("Aufgaben")
     
     # Sample data for tasks and their distribution
@@ -98,6 +98,14 @@ elif sections == "Aufgaben":
     # Display the table of tasks and their distribution
     st.subheader('Table of Tasks and Their Distribution')
     st.table(df_tasks)
+
+    # Display a heatmap of the task distribution
+    st.subheader('Heatmap of Task Distribution')
+    plt.figure(figsize=(6, 4))
+    heatmap_data = df_tasks.pivot_table(index='Task', columns='Importance', values='Hours per Week')
+    sns.heatmap(heatmap_data, annot=True, cmap='coolwarm')
+    plt.title('Heatmap of Task Distribution')
+    st.pyplot(plt)
 
 # Project Works Section
 elif sections == "Projektarbeiten":
