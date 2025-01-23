@@ -219,7 +219,7 @@ elif sections == "Teambeiträge":
     with col2:
         st.table(df_summary)
     
-   # Trainings Section
+# Trainings Section
 if sections == "Schulungen":
     st.header("Schulungen")
     
@@ -245,22 +245,22 @@ if sections == "Schulungen":
     # Adjust the index to start from 1 instead of 0
     df_work_project.index = df_work_project.index + 1
 
-# On-boarding Certifications
-onboarding_certifications = {
-    'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice', 'Certified Mentoring Program 2025'],
-    'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
-}
+    # On-boarding Certifications
+    onboarding_certifications = {
+        'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice', 'Certified Mentoring Program 2025'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
+    }
 
-df_onboarding_certifications = pd.DataFrame(onboarding_certifications)
+    df_onboarding_certifications = pd.DataFrame(onboarding_certifications)
 
-# Adjust the index to start from 1 instead of 0
-df_onboarding_certifications.index = df_onboarding_certifications.index + 1
+    # Adjust the index to start from 1 instead of 0
+    df_onboarding_certifications.index = df_onboarding_certifications.index + 1
 
-st.subheader("Onboarding-Schulungen")
-st.table(df_onboarding)
+    st.subheader("Onboarding-Schulungen")
+    st.table(df_onboarding)
     
-st.subheader("Projektbezogene Schulungen")
-st.table(df_work_project)
+    st.subheader("Projektbezogene Schulungen")
+    st.table(df_work_project)
     
-st.subheader("On-boarding Certifications")
-st.table(df_onboarding_certifications)
+    st.subheader("On-boarding Certifications")
+    st.table(df_onboarding_certifications)
