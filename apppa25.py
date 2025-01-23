@@ -91,18 +91,13 @@ elif sections == "Aufgaben":
 
     # Convert the dictionary to a DataFrame
     df_tasks = pd.DataFrame(tasks)
+    
+    # Adjust the index to start from 1 instead of 0
+    df_tasks.index = df_tasks.index + 1
 
     # Display the table of tasks and their distribution
     st.subheader('Table of Tasks and Their Distribution')
     st.table(df_tasks)
-
-    # Display a heatmap of the task distribution
-    st.subheader('Heatmap of Task Distribution')
-    plt.figure(figsize=(6, 4))
-    heatmap_data = df_tasks.pivot_table(index='Task', columns='Importance', values='Hours per Week')
-    sns.heatmap(heatmap_data, annot=True, cmap='coolwarm')
-    plt.title('Heatmap of Task Distribution')
-    st.pyplot(plt)
 
 # Project Works Section
 elif sections == "Projektarbeiten":
@@ -117,6 +112,9 @@ elif sections == "Projektarbeiten":
     # Convert project work list to DataFrame
     df_project_work = pd.DataFrame(project_work_list)
     
+    # Adjust the index to start from 1 instead of 0
+    df_project_work.index = df_project_work.index + 1
+
     # Display project work list in a table format
     st.subheader('Projektliste')
     st.table(df_project_work)
@@ -168,7 +166,6 @@ elif sections == "Projektarbeiten":
             for task in section['full_list']:
                 st.markdown(f"  - {task}")
 
-
 # Team Contributions Section
 elif sections == "Teambeiträge":
     st.header("Teambeiträge")
@@ -186,6 +183,9 @@ elif sections == "Teambeiträge":
     }
     
     df_contributions = pd.DataFrame(team_contributions)
+    
+    # Adjust the index to start from 1 instead of 0
+    df_contributions.index = df_contributions.index + 1
     
     # Sort the dataframe by percentage of hours in descending order
     df_contributions = df_contributions.sort_values(by='Percentage of Hours', ascending=False)
@@ -210,9 +210,9 @@ elif sections == "Teambeiträge":
     
     with col2:
         st.table(df_summary)
-
-# Trainings Section
-elif sections == "Schulungen":
+    
+   # Trainings Section
+if sections == "Schulungen":
     st.header("Schulungen")
     
     # Onboarding Trainings
@@ -223,6 +223,9 @@ elif sections == "Schulungen":
     
     df_onboarding = pd.DataFrame(onboarding_trainings)
     
+    # Adjust the index to start from 1 instead of 0
+    df_onboarding.index = df_onboarding.index + 1
+
     # Work Project Trainings
     work_project_trainings = {
         'Schulung': ['SLPS_PA4_PA5 MA Einführung', 'SLPS_PA4_5 Workshop Ersteller', 'Projekt SuedLink obligatorische Datenschutzschulung'],
@@ -231,8 +234,25 @@ elif sections == "Schulungen":
     
     df_work_project = pd.DataFrame(work_project_trainings)
     
+    # Adjust the index to start from 1 instead of 0
+    df_work_project.index = df_work_project.index + 1
+
+    # On-boarding Certifications
+    onboarding_certifications = {
+        'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
+    }
+    
+    df_onboarding_certifications = pd.DataFrame(onboarding_certifications)
+    
+    # Adjust the index to start from 1 instead of 0
+    df_onboarding_certifications.index = df_onboarding_certifications.index + 1
+
     st.subheader("Onboarding-Schulungen")
     st.table(df_onboarding)
     
     st.subheader("Projektbezogene Schulungen")
     st.table(df_work_project)
+    
+    st.subheader("On-boarding Certifications")
+    st.table(df_onboarding_certifications)
