@@ -121,15 +121,23 @@ elif sections == "Projektarbeiten":
     st.subheader('Projektliste')
     st.table(df_project_work)
     
-    # Tasks List Data with main section, sub sections and tasks under it
+    # Tasks List Data with main section, short list of tasks, and full list of tasks
     tasks_list = [
         {"main_section": "GeoDin Arbeiten", 
-         "tasks": [
+         "short_list": [
+             "Datenimport aus Monitoring Report",
+             "Datenimport aus SensorWeb"
+         ],
+         "full_list": [
              "Datenimport aus Monitoring Report, Excel Tabulation, Sorting, Datenlogger",
              "Datenimport aus SensorWeb, Excel Tabulation, Sorting, Datenlogger"
          ]},
         {"main_section": "GIS Arbeiten",
-         "tasks": [
+         "short_list": [
+             "GIS Daten bereitstellen",
+             "Arbeiten mit Feature Classes"
+         ],
+         "full_list": [
              "GIS Daten bereitstellen",
              "Arbeiten mit Feature Classes",
              "Verwendung von Shapefiles",
@@ -137,18 +145,28 @@ elif sections == "Projektarbeiten":
              "Analyse und Visualisierung von GIS-Daten"
          ]},
         {"main_section": "Monitoringbericht H2/24",
-         "tasks": [
+         "short_list": [
+             "Arbeiten an Anlagen"
+         ],
+         "full_list": [
              "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
          ]}
     ]
     
-    # Display tasks list in a structured format with main section and sub sections
+    # Display tasks list in a structured format with main section and short list of tasks
     st.subheader('Aufgabenliste')
     
     for section in tasks_list:
         st.markdown(f"**{section['main_section']}**")
-        for task in section['tasks']:
+        
+        # Display short list of tasks
+        for task in section['short_list']:
             st.markdown(f"- {task}")
+        
+        # Add a dropdown filter to show the full list of tasks
+        if st.checkbox(f"Show all tasks for {section['main_section']}"):
+            for task in section['full_list']:
+                st.markdown(f"  - {task}")
 
 
 # Team Contributions Section
