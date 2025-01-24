@@ -131,12 +131,14 @@ elif sections == "Projektarbeiten":
     tasks_list = [
         {"main_section": "GeoDin Arbeiten", 
          "short_list": [
-             "Datenimport aus Monitoring Report",
-             "Datenimport aus SensorWeb"
+             "Datenimport aus Monitoring Report, SensorWeb"
          ],
          "full_list": [
-             "Datenimport aus Monitoring Report, Excel Tabulation, Sorting, Datenlogger",
-             "Datenimport aus SensorWeb, Excel Tabulation, Sorting, Datenlogger"
+             "Datenimport aus Monitoring Report, SensorWeb",
+             "Datenimport und Verarbeitung von Monitoring-Daten",
+             "Erstellung und Pflege von Datenbanken",
+             "Analyse von Wasserstandsdaten",
+             "Erstellung von Berichten und Visualisierungen"
          ]},
         {"main_section": "GIS Arbeiten",
          "short_list": [
