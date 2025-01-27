@@ -181,7 +181,7 @@ elif sections == "Projektarbeiten":
         
         # Display short list of tasks
         for task in section['short_list']:
-            st.markdown(f"- {task}")
+            st.markdown(f"- {task}") 
         
         # Add a dropdown filter to show the full list of tasks
         if st.checkbox(f"Show all tasks for {section['main_section']}"):
