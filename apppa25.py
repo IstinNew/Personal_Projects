@@ -158,6 +158,18 @@ elif sections == "Projektarbeiten":
          ],
          "full_list": [
              "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
+         ]},
+        {"main_section": "Allgemeine Aufgaben",
+         "short_list": [
+             "Vorbereitung von Ortsterminen",
+             "Mitwirkung an Konzepten, Stellungnahmen"
+         ],
+         "full_list": [
+             "Vorbereitung von Ortsterminen",
+             "Mitwirkung an Konzepten, Stellungnahmen",
+             "Zusammenstellung von verfügbaren Informationen",
+             "Entwicklung von Monitoringkonzepten",
+             "Koordination mit Drittanbietern"
          ]}
     ]
     
