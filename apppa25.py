@@ -153,7 +153,7 @@ elif sections == "Projektarbeiten":
              "Erstellung und Bearbeitung von Karten",
              "Analyse und Visualisierung von GIS-Daten"
          ]},
-        {"main_section": "Projektüberblick Jan - Mar 2025",
+        {"main_section": "Projektbezogene Aufgaben Jan - Mar 2025",
          "short_list": [
              "Arbeiten an Anlagen"
              "Vorbereitung von Ortsterminen",
