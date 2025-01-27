@@ -153,25 +153,22 @@ elif sections == "Projektarbeiten":
              "Erstellung und Bearbeitung von Karten",
              "Analyse und Visualisierung von GIS-Daten"
          ]},
-        {"main_section": "Monitoringbericht H2/24",
+        {"main_section": "Projektüberblick Jan - Mar 2025",
          "short_list": [
              "Arbeiten an Anlagen"
+             "Vorbereitung von Ortsterminen",
+             "Mitwirkung an Konzepten, Stellungnahmen",
+             "Monitoringbericht erstellen"
          ],
          "full_list": [
              "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
-         ]},
-        {"main_section": "Allgemeine Aufgaben",
-         "short_list": [
-             "Vorbereitung von Ortsterminen",
-             "Mitwirkung an Konzepten, Stellungnahmen"
-         ],
-         "full_list": [
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",
              "Zusammenstellung von verfügbaren Informationen",
              "Entwicklung von Monitoringkonzepten",
-             "Koordination mit Drittanbietern"
-         ]}
+             "Koordination mit Drittanbietern",
+             "Monitoringbericht erstellen und analysieren"
+            ]}
     ]
     
     # Display tasks list in a structured format with main section and short list of tasks
