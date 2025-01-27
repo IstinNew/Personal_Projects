@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Define Colors based on Arcadis Marketing Branding
+# Define Colors based on Arcadis Marketing Theme
 arcadis_colors = {
     "primary": "#F05A28",       # Bold Orange
     "accent": "#000000",        # Black
