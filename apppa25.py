@@ -157,19 +157,23 @@ elif sections == "Projektarbeiten":
          ]},
         {"main_section": "Projektbezogene Aufgaben Jan - Mar 2025",
          "short_list": [
-             "Arbeiten an Anlagen"
+             "Arbeiten an Anlagen",
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",
-             "Monitoringbericht erstellen"
+             "Monitoringbericht erstellen",
+             "Einsatz von Data-Science-Techniken zur Sortierung, Filterung und Automatisierung der Verwaltung einer komplexen GeoDin-Datenbank, um die Datengenauigkeit und Effizienz zu verbessern."
          ],
          "full_list": [
-             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht"
+             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht",
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",
              "Zusammenstellung von verfügbaren Informationen",
              "Entwicklung von Monitoringkonzepten",
              "Koordination mit Drittanbietern",
-             "Monitoringbericht erstellen und analysieren"
+             "Monitoringbericht erstellen und analysieren",
+             "Anwendung fortschrittlicher Data-Science-Methoden zur Optimierung von GeoDin- und MS-Office-Workflows, um eine nahtlose Datenintegration und -verarbeitung zu gewährleisten.",
+             "Unterstützung bei der Analyse von Berichten durch automatisierte Datenverarbeitung und Visualisierung.",
+             "Verbesserung der Berichtsgenauigkeit durch detaillierte Datenanalyse und Mustererkennung."
             ]}
     ]
     
