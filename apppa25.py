@@ -21,7 +21,7 @@ st.write("Übersicht : Leistungen und Fortschritte")
 
 # Navigation Sidebar for Clickable Sections
 st.sidebar.title("Navigation")
-sections = st.sidebar.radio("Sections", ["Persönliche Informationen", "Aufgaben", "Projektarbeiten", "Teambeiträge", "Schulungen"])
+sections = st.sidebar.radio("Sections", ["Persönliche Informationen", "Aufgaben", "Projektarbeiten", "Nutzung von Data Science", "Teambeiträge", "Schulungen"])
 
 # Personal Information Section
 if sections == "Persönliche Informationen":
