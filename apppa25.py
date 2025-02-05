@@ -194,6 +194,7 @@ elif sections == "Projektarbeiten":
             for task in section['full_list']:
                 st.markdown(f"  - {task}")
 
+
 # Data Science Usage Section
 st.header("Nutzung von Data Science")
 
@@ -243,12 +244,14 @@ if uploaded_file is not None:
     # Provide download link for the saved file
     st.download_button(label="Gefilterte Daten herunterladen", data=open(output_file_path, 'rb').read(), file_name=output_file_path)
     
-    # Create a 3-axis data chart with date, pH/EC, and Ortsbez
-    fig = px.scatter(filtered_df, x='DATUM', y=['PH_FIELD', 'EC'], color='ORTSBEZ',
-                     labels={'value': 'pH/EC', 'variable': 'Measurement'},
-                     title="3-Axis Data Chart with Date, pH/EC, and Ortsbez")
+    # Create a 3-axis data chart with date, pH, Station Name (Identifier Name), and legend for ORTSBEZ
+    fig = px.scatter(filtered_df, x='DATUM', y='PH_FIELD', color='ORTSBEZ',
+                     hover_data=['Identifier Name'],
+                     labels={'PH_FIELD': 'pH Value'},
+                     title="3-Axis Data Chart with Date, pH, Station Name (Identifier Name), and Ortsbez")
     
     st.plotly_chart(fig)
+
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
