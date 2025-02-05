@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime
+import plotly.express as px 
 
 # Define Colors based on Arcadis Marketing Theme
 arcadis_colors = {
@@ -194,54 +195,60 @@ elif sections == "Projektarbeiten":
                 st.markdown(f"  - {task}")
 
 # Data Science Usage Section
-elif sections == "Nutzung von Data Science":
-    st.header("Nutzung von Data Science")
+st.header("Nutzung von Data Science")
+
+# File Upload
+uploaded_file = st.file_uploader("Laden Sie Ihre GeoDin Excel-Datei hoch", type=["xlsx"])
+
+if uploaded_file is not None:
+    # Load Excel sheets into DataFrames
+    s3stamm = pd.read_excel(uploaded_file, sheet_name='GEODIN_LOC_S3STAMM', engine='openpyxl')
+    gwatab01 = pd.read_excel(uploaded_file, sheet_name='GEODIN_MES_GWATAB01', engine='openpyxl')
     
-    # File Upload
-    uploaded_file = st.file_uploader("Laden Sie Ihre GeoDin Excel-Datei hoch", type=["xlsx"])
+    # Convert date columns to datetime format
+    s3stamm['DATUM'] = pd.to_datetime(s3stamm['DATUM'], format='%d.%m.%Y %H:%M:%S', errors='coerce')
+    gwatab01['SMPDATE'] = pd.to_datetime(gwatab01['SMPDATE'], format='%d.%m.%Y %H:%M:%S', errors='coerce')
     
-    if uploaded_file is not None:
-        # Load Excel sheets into DataFrames
-        s3stamm = pd.read_excel(uploaded_file, sheet_name='GEODIN_LOC_S3STAMM', engine='openpyxl')
-        gwatab01 = pd.read_excel(uploaded_file, sheet_name='GEODIN_MES_GWATAB01', engine='openpyxl')
-        
-        # Convert date columns to datetime format
-        s3stamm['DATUM'] = pd.to_datetime(s3stamm['DATUM'], format='%d.%m.%Y %H:%M:%S', errors='coerce')
-        gwatab01['SMPDATE'] = pd.to_datetime(gwatab01['SMPDATE'], format='%d.%m.%Y %H:%M:%S', errors='coerce')
-        
-        # Filter and merge DataFrames
-        s3stamm_filtered = s3stamm[s3stamm['LONGNAME'].str.contains(r'PA[345]-GWM-.*', regex=True) & 
-                                   s3stamm['SHORTNAME'].str.contains(r'GWM-.*', regex=True)].copy()
-        gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'PA[345]-GWM-.*', regex=True)].copy()
-        
-        s3stamm_filtered['Identifier Name'] = s3stamm_filtered['LONGNAME']
-        gwatab01_filtered['Identifier Name'] = gwatab01_filtered['SMPNAME']
-        
-        merged_df = s3stamm_filtered.merge(gwatab01_filtered, left_on='Identifier Name', right_on='Identifier Name', how='left')
-        
-        merged_df['DATUM'] = pd.to_datetime(merged_df['DATUM'], errors='coerce')
-        merged_df['SMPDATE'] = pd.to_datetime(merged_df['SMPDATE'], errors='coerce')
-        
-        # Handle missing dates
-        if 'SMPDATE' in merged_df.columns:
-            merged_df.dropna(subset=['SMPDATE'], inplace=True)
-        
-        # Date range filter
-        start_date = st.date_input("Startdatum", value=datetime.date(2025, 1, 1))
-        end_date = st.date_input("Enddatum", value=datetime.date(2025, 12, 31))
-        
-        filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
-        
-        # Display filtered DataFrame
-        st.subheader("Gefiltertes DataFrame")
-        st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'LONGNAME', 'SHORTNAME', 'SMPNAME', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
-        
-        # Save the filtered DataFrame to an Excel file
-        output_file_path = 'Gefilterte_GeoDin_Daten.xlsx'
-        filtered_df.to_excel(output_file_path, index=False)
-        
-        # Provide download link for the saved file
-        st.download_button(label="Gefilterte Daten herunterladen", data=open(output_file_path, 'rb').read(), file_name=output_file_path)
+    # Filter and merge DataFrames
+    s3stamm_filtered = s3stamm[s3stamm['LONGNAME'].str.contains(r'PA[345]-GWM-.*', regex=True) & 
+                               s3stamm['SHORTNAME'].str.contains(r'GWM-.*', regex=True)].copy()
+    gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'PA[345]-GWM-.*', regex=True)].copy()
+    
+    s3stamm_filtered['Identifier Name'] = s3stamm_filtered['LONGNAME']
+    gwatab01_filtered['Identifier Name'] = gwatab01_filtered['SMPNAME']
+    
+    merged_df = s3stamm_filtered.merge(gwatab01_filtered, left_on='Identifier Name', right_on='Identifier Name', how='left')
+    
+    merged_df['DATUM'] = pd.to_datetime(merged_df['DATUM'], errors='coerce')
+    merged_df['SMPDATE'] = pd.to_datetime(merged_df['SMPDATE'], errors='coerce')
+    
+    # Handle missing dates
+    if 'SMPDATE' in merged_df.columns:
+        merged_df.dropna(subset=['SMPDATE'], inplace=True)
+    
+    # Date range filter
+    start_date = st.date_input("Startdatum", value=datetime.date(2025, 1, 1))
+    end_date = st.date_input("Enddatum", value=datetime.date(2025, 12, 31))
+    
+    filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
+    
+    # Display filtered DataFrame
+    st.subheader("Gefiltertes DataFrame")
+    st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'LONGNAME', 'SHORTNAME', 'SMPNAME', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
+    
+    # Save the filtered DataFrame to an Excel file
+    output_file_path = 'Gefilterte_GeoDin_Daten.xlsx'
+    filtered_df.to_excel(output_file_path, index=False)
+    
+    # Provide download link for the saved file
+    st.download_button(label="Gefilterte Daten herunterladen", data=open(output_file_path, 'rb').read(), file_name=output_file_path)
+    
+    # Create a 3-axis data chart with date, pH/EC, and Ortsbez
+    fig = px.scatter(filtered_df, x='DATUM', y=['PH_FIELD', 'EC'], color='ORTSBEZ',
+                     labels={'value': 'pH/EC', 'variable': 'Measurement'},
+                     title="3-Axis Data Chart with Date, pH/EC, and Ortsbez")
+    
+    st.plotly_chart(fig)
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
