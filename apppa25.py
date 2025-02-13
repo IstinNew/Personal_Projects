@@ -220,17 +220,10 @@ elif sections == "Nutzung von Data Science":
                                        s3stamm['SHORTNAME'].str.contains(r'GWM-.*', regex=True)].copy()
             gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'PA[345]-GWM-.*', regex=True)].copy()
             
-            # Debug: Print the number of rows after filtering
-            st.write(f"Number of rows in s3stamm_filtered: {len(s3stamm_filtered)}")
-            st.write(f"Number of rows in gwatab01_filtered: {len(gwatab01_filtered)}")
-            
             s3stamm_filtered['Identifier Name'] = s3stamm_filtered['LONGNAME'].str.replace('PA', 'SX')
             gwatab01_filtered['Identifier Name'] = gwatab01_filtered['SMPNAME'].str.replace('PA', 'SX')
             
             merged_df = s3stamm_filtered.merge(gwatab01_filtered, left_on='Identifier Name', right_on='Identifier Name', how='left')
-            
-            # Debug: Print the number of rows after merging
-            st.write(f"Number of rows in merged_df: {len(merged_df)}")
             
             merged_df['DATUM'] = pd.to_datetime(merged_df['DATUM'], errors='coerce')
             merged_df['SMPDATE'] = pd.to_datetime(merged_df['SMPDATE'], errors='coerce')
@@ -238,10 +231,6 @@ elif sections == "Nutzung von Data Science":
             # Handle missing dates
             if 'SMPDATE' in merged_df.columns:
                 merged_df.dropna(subset=['SMPDATE'], inplace=True)
-            
-            # Debug: Print a sample of the merged data
-            st.write("Sample of merged_df:")
-            st.write(merged_df.head())
             
             # Split ORTSBEZ into Baulos, Kabelsectionen, and Ort
             merged_df[['Baulos', 'Kabelsectionen', 'Ort']] = merged_df['ORTSBEZ'].str.split('; ', expand=True)
@@ -257,16 +246,9 @@ elif sections == "Nutzung von Data Science":
             
             filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
             
-            # Debug: Print the number of rows after date filtering
-            st.write(f"Number of rows in filtered_df: {len(filtered_df)}")
-            
-            # Debug: Print a sample of the filtered data
-            st.write("Sample of filtered_df:")
-            st.write(filtered_df.head())
-            
             # Display filtered DataFrame
             st.subheader("Gefiltertes DataFrame")
-            st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'Baulos', 'Kabelsectionen', 'Ort', 'LONGNAME', 'SHORTNAME', 'SMPNAME', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
+            st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'Baulos', 'Kabelsectionen', 'Ort', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
             
             # Save the filtered DataFrame to an Excel file
             output_file_path = 'Gefilterte_GeoDin_Daten.xlsx'
