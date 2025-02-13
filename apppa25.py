@@ -231,9 +231,14 @@ elif sections == "Nutzung von Data Science":
         # Split ORTSBEZ into Baulos, Kabelsectionen, and Ort
         merged_df[['Baulos', 'Kabelsectionen', 'Ort']] = merged_df['ORTSBEZ'].str.split('; ', expand=True)
         
+        # Display the data range for the entire dataset
+        min_date = merged_df['DATUM'].min()
+        max_date = merged_df['DATUM'].max()
+        st.write(f"**Data Range:** Start Date: {min_date} End Date: {max_date}")
+        
         # Date range filter
-        start_date = st.date_input("Startdatum", value=datetime.date(2024, 1, 1))
-        end_date = st.date_input("Enddatum", value=datetime.date(2024, 6, 30))
+        start_date = st.date_input("Startdatum", value=min_date)
+        end_date = st.date_input("Enddatum", value=max_date)
         
         filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
         
