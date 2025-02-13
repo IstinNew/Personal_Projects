@@ -239,6 +239,10 @@ elif sections == "Nutzung von Data Science":
             if 'SMPDATE' in merged_df.columns:
                 merged_df.dropna(subset=['SMPDATE'], inplace=True)
             
+            # Debug: Print a sample of the merged data
+            st.write("Sample of merged_df:")
+            st.write(merged_df.head())
+            
             # Split ORTSBEZ into Baulos, Kabelsectionen, and Ort
             merged_df[['Baulos', 'Kabelsectionen', 'Ort']] = merged_df['ORTSBEZ'].str.split('; ', expand=True)
             
@@ -255,6 +259,10 @@ elif sections == "Nutzung von Data Science":
             
             # Debug: Print the number of rows after date filtering
             st.write(f"Number of rows in filtered_df: {len(filtered_df)}")
+            
+            # Debug: Print a sample of the filtered data
+            st.write("Sample of filtered_df:")
+            st.write(filtered_df.head())
             
             # Display filtered DataFrame
             st.subheader("Gefiltertes DataFrame")
