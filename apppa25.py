@@ -220,10 +220,17 @@ elif sections == "Nutzung von Data Science":
                                        s3stamm['SHORTNAME'].str.contains(r'GWM-.*', regex=True)].copy()
             gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'PA[345]-GWM-.*', regex=True)].copy()
             
+            # Debug: Print the number of rows after filtering
+            st.write(f"Number of rows in s3stamm_filtered: {len(s3stamm_filtered)}")
+            st.write(f"Number of rows in gwatab01_filtered: {len(gwatab01_filtered)}")
+            
             s3stamm_filtered['Identifier Name'] = s3stamm_filtered['LONGNAME'].str.replace('PA', 'SX')
             gwatab01_filtered['Identifier Name'] = gwatab01_filtered['SMPNAME'].str.replace('PA', 'SX')
             
             merged_df = s3stamm_filtered.merge(gwatab01_filtered, left_on='Identifier Name', right_on='Identifier Name', how='left')
+            
+            # Debug: Print the number of rows after merging
+            st.write(f"Number of rows in merged_df: {len(merged_df)}")
             
             merged_df['DATUM'] = pd.to_datetime(merged_df['DATUM'], errors='coerce')
             merged_df['SMPDATE'] = pd.to_datetime(merged_df['SMPDATE'], errors='coerce')
@@ -245,6 +252,9 @@ elif sections == "Nutzung von Data Science":
             end_date = st.date_input("Enddatum", value=max_date)
             
             filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
+            
+            # Debug: Print the number of rows after date filtering
+            st.write(f"Number of rows in filtered_df: {len(filtered_df)}")
             
             # Display filtered DataFrame
             st.subheader("Gefiltertes DataFrame")
