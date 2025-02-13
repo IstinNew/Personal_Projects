@@ -228,15 +228,18 @@ elif sections == "Nutzung von Data Science":
         if 'SMPDATE' in merged_df.columns:
             merged_df.dropna(subset=['SMPDATE'], inplace=True)
         
+        # Split ORTSBEZ into Baulos, Kabelsectionen, and Ort
+        merged_df[['Baulos', 'Kabelsectionen', 'Ort']] = merged_df['ORTSBEZ'].str.split('; ', expand=True)
+        
         # Date range filter
-        start_date = st.date_input("Startdatum", value=datetime.date(2025, 1, 1))
-        end_date = st.date_input("Enddatum", value=datetime.date(2025, 12, 31))
+        start_date = st.date_input("Startdatum", value=datetime.date(2024, 1, 1))
+        end_date = st.date_input("Enddatum", value=datetime.date(2024, 6, 30))
         
         filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
         
         # Display filtered DataFrame
         st.subheader("Gefiltertes DataFrame")
-        st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'LONGNAME', 'SHORTNAME', 'SMPNAME', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
+        st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'Baulos', 'Kabelsectionen', 'Ort', 'LONGNAME', 'SHORTNAME', 'SMPNAME', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
         
         # Save the filtered DataFrame to an Excel file
         output_file_path = 'Gefilterte_GeoDin_Daten.xlsx'
@@ -247,7 +250,7 @@ elif sections == "Nutzung von Data Science":
         
         # Create a 3-axis data chart with date, pH, Station Name (Identifier Name), and legend for ORTSBEZ
         fig = px.scatter(filtered_df, x='DATUM', y='PH_FIELD', color='ORTSBEZ',
-                         hover_data=['Identifier Name'],
+                         hover_data=['Identifier Name', 'Baulos', 'Kabelsectionen', 'Ort'],
                          labels={'PH_FIELD': 'pH Value'},
                          title="3-Axis Data Chart with Date, pH, Station Name (Identifier Name), and Ortsbez")
         
