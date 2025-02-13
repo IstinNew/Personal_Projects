@@ -246,6 +246,9 @@ elif sections == "Nutzung von Data Science":
             
             filtered_df = merged_df[(merged_df['DATUM'] >= pd.to_datetime(start_date)) & (merged_df['DATUM'] <= pd.to_datetime(end_date))]
             
+            # Remove duplicate entries
+            filtered_df = filtered_df.drop_duplicates()
+            
             # Display filtered DataFrame
             st.subheader("Gefiltertes DataFrame")
             st.write(filtered_df[['Identifier Name', 'ORTSBEZ', 'Baulos', 'Kabelsectionen', 'Ort', 'DATUM', 'XCOORD', 'YCOORD', 'ZCOORDB', 'ZCOORDE', 'COLOUR', 'PH_FIELD', 'EC', 'TURB_LAB']])
