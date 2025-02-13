@@ -216,9 +216,9 @@ elif sections == "Nutzung von Data Science":
             gwatab01['SMPDATE'] = pd.to_datetime(gwatab01['SMPDATE'], format='%d.%m.%Y %H:%M:%S', errors='coerce')
             
             # Filter and merge DataFrames
-            s3stamm_filtered = s3stamm[s3stamm['LONGNAME'].str.contains(r'PA[345]-GWM-.*', regex=True) & 
+            s3stamm_filtered = s3stamm[s3stamm['LONGNAME'].str.contains(r'SX[345]-GWM-.*', regex=True) & 
                                        s3stamm['SHORTNAME'].str.contains(r'GWM-.*', regex=True)].copy()
-            gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'PA[345]-GWM-.*', regex=True)].copy()
+            gwatab01_filtered = gwatab01[gwatab01['SMPNAME'].str.contains(r'SX[345]-GWM-.*', regex=True)].copy()
             
             s3stamm_filtered['Identifier Name'] = s3stamm_filtered['LONGNAME']
             gwatab01_filtered['Identifier Name'] = gwatab01_filtered['SMPNAME']
