@@ -199,6 +199,9 @@ elif sections == "Projektarbeiten":
 elif sections == "Nutzung von Data Science":
     st.header("Nutzung von Data Science")
 
+    # Display data protection message
+    st.write("**Note:** Zum Schutz der Daten wurden die genauen Stationsnamen, Standorte und Koordinaten in der Excel-Tabelle geändert.")
+
     # File Upload
     uploaded_file = st.file_uploader("Laden Sie Ihre GeoDin Excel-Datei hoch", type=["xlsx"])
 
@@ -260,7 +263,6 @@ elif sections == "Nutzung von Data Science":
                          title="3-Axis Data Chart with Date, pH, Station Name (Identifier Name), and Ortsbez")
         
         st.plotly_chart(fig)
-
 
 # Team Contributions Section
 elif sections == "Teambeiträge":
