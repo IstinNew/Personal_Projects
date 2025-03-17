@@ -34,7 +34,8 @@ if sections == "Persönliche Informationen":
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Arbeitsort: Freiberg (Sachs)</p>", unsafe_allow_html=True) 
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Business Unit: Resilience</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Affinity Group: Ethinicity & Heritage</p>", unsafe_allow_html=True)
-
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> freiwillige Unterstützer: Wintercup 2025</p>", unsafe_allow_html=True)
+    
     # Additional Personal Information
     st.markdown("""
         <style>
@@ -85,7 +86,7 @@ if sections == "Aufgaben":
         'Task': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
-            'Projektkoordination extern mit dem Team von UIT',
+            'Projektkoordination extern mit dem Team von UIT, Eurofins ',
             'Projektkoordination in-company mit Gabriel Knorr',
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
@@ -276,7 +277,7 @@ elif sections == "Teambeiträge":
         'Contribution': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
-            'Projektkoordination extern mit dem Team von UIT',
+            'Projektkoordination extern mit dem Team von UIT, Eurofins',
             'Projektkoordination in-company mit Gabriel Knorr',
             'Projektassistenzarbeit, In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
