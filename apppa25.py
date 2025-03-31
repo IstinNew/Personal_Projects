@@ -88,8 +88,8 @@ if sections == "Aufgaben":
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
             'Projektkoordination extern mit dem Team von UIT, Eurofins ',
             'Projektkoordination in-company mit Gabriel Knorr',
-            'Projektassistenzarbeit, In-Office Meetings usw.',
-            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
+            'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
+            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle, Viola Uhlig'
         ],
         'Importance': [5, 4, 3, 3, 2, 1],
         'Hours per Week': [20, 6, 5, 4, 3, 2]
@@ -160,7 +160,7 @@ elif sections == "Projektarbeiten":
          ]},
         {"main_section": "Projektbezogene Aufgaben Jan - Mar 2025",
          "short_list": [
-             "Project Calendar Coordination (SuedLink Grundwassermonitoring Baulose 3 bis 4)"
+             "Project Calendar Coordination (SuedLink Grundwassermonitoring Baulose 3 bis 4)",
              "Arbeiten an Anlagen",
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",             
@@ -281,8 +281,8 @@ elif sections == "Teambeiträge":
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
             'Projektkoordination extern mit dem Team von UIT, Eurofins',
             'Projektkoordination in-company mit Gabriel Knorr',
-            'Projektassistenzarbeit, In-Office Meetings usw.',
-            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle'
+            'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
+            'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle, Viola Uhlig'
         ],
         'Percentage of Hours': [50, 15, 12.5, 10, 7.5, 5]
     }
