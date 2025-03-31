@@ -168,7 +168,8 @@ elif sections == "Projektarbeiten":
              "Einsatz von Data-Science-Techniken zur Sortierung, Filterung und Automatisierung der Verwaltung einer komplexen GeoDin-Datenbank, um die Datengenauigkeit und Effizienz zu verbessern."
          ],
          "full_list": [
-             "Projektkalenderkoordination (SuedLink Grundwassermonitoring Baulose 3 bis 4), einschließlich der Planung und Überwachung von Terminen, Ressourcen und Meilensteinen",             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht",
+             "Projektkalenderkoordination (SuedLink Grundwassermonitoring Baulose 3 bis 4), einschließlich der Planung und Überwachung von Terminen, Ressourcen und Meilensteinen",             
+             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht",
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",
              "Zusammenstellung von verfügbaren Informationen",
