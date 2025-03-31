@@ -138,7 +138,7 @@ elif sections == "Projektarbeiten":
         {"main_section": "GeoDin Arbeiten", 
          "short_list": [
              "Datenimport und Verarbeitung von Monitoring-Daten",
-             "Erstellung und Pflege von Datenbanken"
+             "Erstellung, Archivierung und Pflege von Datenbanken"
          ],
          "full_list": [
              "Datenimport und Verarbeitung von Monitoring-Daten",
@@ -160,14 +160,15 @@ elif sections == "Projektarbeiten":
          ]},
         {"main_section": "Projektbezogene Aufgaben Jan - Mar 2025",
          "short_list": [
+             "Project Calendar Coordination (SuedLink Grundwassermonitoring Baulose 3 bis 4)"
              "Arbeiten an Anlagen",
              "Vorbereitung von Ortsterminen",
-             "Mitwirkung an Konzepten, Stellungnahmen",
+             "Mitwirkung an Konzepten, Stellungnahmen",             
              "Monitoringbericht erstellen",
              "Einsatz von Data-Science-Techniken zur Sortierung, Filterung und Automatisierung der Verwaltung einer komplexen GeoDin-Datenbank, um die Datengenauigkeit und Effizienz zu verbessern."
          ],
          "full_list": [
-             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht",
+             "Projektkalenderkoordination (SuedLink Grundwassermonitoring Baulose 3 bis 4), einschließlich der Planung und Überwachung von Terminen, Ressourcen und Meilensteinen",             "Arbeiten an Anlagen (Messpunkte Parameterganglinie, Deckblatten usw.) und Bericht",
              "Vorbereitung von Ortsterminen",
              "Mitwirkung an Konzepten, Stellungnahmen",
              "Zusammenstellung von verfügbaren Informationen",
