@@ -87,7 +87,7 @@ if sections == "Aufgaben":
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
             'Projektkoordination extern mit dem Team von UIT, Eurofins ',
-            'Projektkoordination in-company mit Gabriel Knorr',
+            'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
             'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle, Viola Uhlig'
         ],
@@ -280,7 +280,7 @@ elif sections == "Teambeiträge":
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
             'Projektkoordination extern mit dem Team von UIT, Eurofins',
-            'Projektkoordination in-company mit Gabriel Knorr',
+            'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
             'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
             'Mittagspausen-Diskussionen mit Sven Namyslik, Volker Ackermann, Michaela Pohle, Viola Uhlig'
         ],
