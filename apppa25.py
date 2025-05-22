@@ -30,7 +30,7 @@ if sections == "Persönliche Informationen":
     st.header("Persönliche Informationen")
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name: Majumder, Shayak</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Badet, Yanna</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name die Vorgesetzte: Badet, Yanna</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Arbeitsort: Freiberg (Sachs)</p>", unsafe_allow_html=True) 
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Business Unit: Resilience</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Corporate Social Task: First Aid (Floor) Warden (in Arbeit) </p>", unsafe_allow_html=True)
