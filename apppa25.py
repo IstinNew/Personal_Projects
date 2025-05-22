@@ -35,7 +35,7 @@ if sections == "Persönliche Informationen":
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Business Unit: Resilience</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Corporate Social Task: First Aid (Floor) Warden (in Arbeit) </p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Affinity Group: Ethinicity & Heritage - Europe</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> freiwillige Unterstützer: Wintercup 2025</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> freiwillige Unterstützer: Wintercup 2025 (28-30 March) </p>", unsafe_allow_html=True)
     
     # Additional Personal Information
     st.markdown("""
