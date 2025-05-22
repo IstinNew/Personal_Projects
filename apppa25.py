@@ -324,8 +324,8 @@ if sections == "Schulungen":
     
     # Onboarding Trainings
     onboarding_trainings = {
-        'Schulung': ['GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
-        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
+        'Schulung': ['Upskilling Program 2025', 'GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
+        'Status': ['Laufend', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     
     df_onboarding = pd.DataFrame(onboarding_trainings)
