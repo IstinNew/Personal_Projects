@@ -85,7 +85,7 @@ if sections == "Aufgaben":
     # Sample data for tasks and their distribution
     tasks = {
         'Task': [
-            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS usw.',
+            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS/WebGIS, SENSOweb, StromNetz usw.',
             'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins ',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
@@ -279,7 +279,7 @@ elif sections == "Teambeiträge":
     
     team_contributions = {
         'Contribution': [
-            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS usw.',
+            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS/WebGIS, SENSOweb, StromNetz usw.',
             'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
