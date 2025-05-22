@@ -18,7 +18,7 @@ bar_colors = ["#6A5ACD", "#4682B4", "#9ACD32", "#32CD32", "#FFD700", "#FF69B4"]
 
 # Title and Introduction
 st.set_page_config(page_title="Probezeit-Gespräch", page_icon=":clipboard:", layout="wide", initial_sidebar_state="expanded")
-st.title("Probezeit-Gespräch nach 3 Monaten")
+st.title("Probezeit-Gespräch nach 5 Monaten")
 st.write("Übersicht : Leistungen und Fortschritte")
 
 # Navigation Sidebar for Clickable Sections
@@ -30,9 +30,10 @@ if sections == "Persönliche Informationen":
     st.header("Persönliche Informationen")
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name: Majumder, Shayak</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Eintrittsdatum: 01.01.2025</p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Soldner, Dennis</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Name der Führungskraft: Badet, Yanna</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Arbeitsort: Freiberg (Sachs)</p>", unsafe_allow_html=True) 
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Business Unit: Resilience</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> First Aid (Floor) Warden </p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Affinity Group: Ethinicity & Heritage</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> freiwillige Unterstützer: Wintercup 2025</p>", unsafe_allow_html=True)
     
@@ -85,7 +86,7 @@ if sections == "Aufgaben":
     tasks = {
         'Task': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
-            'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
+            'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins ',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
             'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
@@ -149,7 +150,8 @@ elif sections == "Projektarbeiten":
         {"main_section": "GIS Arbeiten",
          "short_list": [
              "GIS Daten bereitstellen",
-             "Arbeiten mit Feature Classes"
+             "Lageplänen bereitstellen",
+             "Arbeiten mit Feature Classes, Shape Files",            
          ],
          "full_list": [
              "GIS Daten bereitstellen",
@@ -158,7 +160,7 @@ elif sections == "Projektarbeiten":
              "Erstellung und Bearbeitung von Karten",
              "Analyse und Visualisierung von GIS-Daten"
          ]},
-        {"main_section": "Projektbezogene Aufgaben Jan - Mar 2025",
+        {"main_section": "Projektbezogene Aufgaben Jan - Juni 2025",
          "short_list": [
              "Project Calendar Coordination (SuedLink Grundwassermonitoring Baulose 3 bis 4)",
              "Arbeiten an Anlagen",
@@ -278,7 +280,7 @@ elif sections == "Teambeiträge":
     team_contributions = {
         'Contribution': [
             'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
-            'Projektkoordination in-house mit Clemens Neupert, Daniel Kahsay',
+            'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
             'Projektassistenzarbeit (Kalender), In-Office Meetings usw.',
@@ -344,8 +346,8 @@ if sections == "Schulungen":
 
     # On-boarding Certifications
     onboarding_certifications = {
-        'Schulung': ['Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice', 'Certified Mentoring Program 2025'],
-        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
+        'Schulung': ['Quality Management', 'Health & Safety Induction E- Learning', 'Bystander Intervention Training', 'Arcadis Global Onboarding & Mandatory', 'Code of Practice', 'Certified Mentoring Program 2025'],
+        'Status': ['Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
 
     df_onboarding_certifications = pd.DataFrame(onboarding_certifications)
