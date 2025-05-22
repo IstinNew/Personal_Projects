@@ -324,7 +324,7 @@ if sections == "Schulungen":
     
     # General Trainings
     general_trainings = {
-        'Schulung': ['Upskilling Program 2025', 'GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
+        'Schulung': ['Upskilling Program 2025', 'GeoDin / ArcGIS Pro', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
         'Status': ['Laufend', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     
