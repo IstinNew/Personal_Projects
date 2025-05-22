@@ -34,7 +34,7 @@ if sections == "Persönliche Informationen":
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Arbeitsort: Freiberg (Sachs)</p>", unsafe_allow_html=True) 
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Business Unit: Resilience</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Corporate Social Task: First Aid (Floor) Warden </p>", unsafe_allow_html=True)
-    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Affinity Group: Ethinicity & Heritage</p>", unsafe_allow_html=True)
+    st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> Affinity Group: Ethinicity & Heritage - Europe</p>", unsafe_allow_html=True)
     st.write(f"<p style='color: {arcadis_colors['text']}; font-size: 18px;'> freiwillige Unterstützer: Wintercup 2025</p>", unsafe_allow_html=True)
     
     # Additional Personal Information
@@ -85,7 +85,7 @@ if sections == "Aufgaben":
     # Sample data for tasks and their distribution
     tasks = {
         'Task': [
-            'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
+            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins ',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
@@ -136,7 +136,7 @@ elif sections == "Projektarbeiten":
     
     # Tasks List Data with main section, short list of tasks, and full list of tasks
     tasks_list = [
-        {"main_section": "GeoDin Arbeiten", 
+        {"main_section": "GeODin Arbeiten", 
          "short_list": [
              "Datenimport und Verarbeitung von Monitoring-Daten",
              "Erstellung, Archivierung und Pflege von Datenbanken"
@@ -178,7 +178,7 @@ elif sections == "Projektarbeiten":
              "Entwicklung von Monitoringkonzepten",
              "Koordination mit Drittanbietern",
              "Monitoringbericht erstellen und analysieren",
-             "Anwendung fortschrittlicher Data-Science-Methoden zur Optimierung von GeoDin- und MS-Office-Workflows, um eine nahtlose Datenintegration und -verarbeitung zu gewährleisten.",
+             "Anwendung fortschrittlicher Data-Science-Methoden zur Optimierung von GeODin- und MS-Office-Workflows, um eine nahtlose Datenintegration und -verarbeitung zu gewährleisten.",
              "Unterstützung bei der Analyse von Berichten durch automatisierte Datenverarbeitung und Visualisierung.",
              "Verbesserung der Berichtsgenauigkeit durch detaillierte Datenanalyse und Mustererkennung."
             ]}
@@ -279,7 +279,7 @@ elif sections == "Teambeiträge":
     
     team_contributions = {
         'Contribution': [
-            'Datenanalyse und -verarbeitung auf GeoDin, ArcGIS usw.',
+            'Datenanalyse und -verarbeitung auf GeODin, ArcGIS usw.',
             'Projektkoordination in-house mit Clemens Neupert, Martinez Luna, Maria Jose',
             'Projektkoordination extern mit dem Team von UIT, Eurofins',
             'Projektkoordination in-company mit dem Team Leipzig (Gabriel Knorr)',
@@ -324,7 +324,7 @@ if sections == "Schulungen":
     
     # General Trainings
     general_trainings = {
-        'Schulung': ['Upskilling Program 2025', 'GeoDin / ArcGIS Pro', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
+        'Schulung': ['Upskilling Program 2025', 'GeODin / ArcGIS Pro', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
         'Status': ['Laufend', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     
