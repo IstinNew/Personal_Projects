@@ -322,16 +322,16 @@ elif sections == "Teambeiträge":
 if sections == "Schulungen":
     st.header("Schulungen")
     
-    # Onboarding Trainings
-    onboarding_trainings = {
+    # General Trainings
+    general_trainings = {
         'Schulung': ['Upskilling Program 2025', 'GeoDin', 'Gesundheit & Sicherheit', 'Virtuelles Onboarding', 'Thema Marketing'],
         'Status': ['Laufend', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen', 'Abgeschlossen']
     }
     
-    df_onboarding = pd.DataFrame(onboarding_trainings)
+    df_general = pd.DataFrame(general_trainings)
     
     # Adjust the index to start from 1 instead of 0
-    df_onboarding.index = df_onboarding.index + 1
+    df_general.index = df_general.index + 1
 
     # Work Project Trainings
     work_project_trainings = {
@@ -355,8 +355,8 @@ if sections == "Schulungen":
     # Adjust the index to start from 1 instead of 0
     df_onboarding_certifications.index = df_onboarding_certifications.index + 1
 
-    st.subheader("Onboarding-Schulungen")
-    st.table(df_onboarding)
+    st.subheader("Allgemein Schulungen")
+    st.table(df_general)
     
     st.subheader("Projektbezogene Schulungen")
     st.table(df_work_project)
