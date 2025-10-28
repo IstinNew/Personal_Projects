@@ -8,9 +8,20 @@ from fpdf import FPDF
 # File to store wishes
 FILE_NAME = "birthday_wishes.csv"
 
-# Initialize storage
-if not os.path.exists(FILE_NAME):
-    pd.DataFrame(columns=["Name", "Wish", "Timestamp"]).to_csv(FILE_NAME, index=False)
+# Clear previous messages and insert default message
+default_message = {
+    "Name": "The Dev Team",
+    "Wish": (
+        "💻 Wishing you a bug-free year ahead, filled with clean commits, zero merge conflicts, "
+        "and infinite loops of happiness. May your birthday be as optimized as your favorite algorithm "
+        "and as joyful as a successful Friday deployment! 🎂🎈\n\n"
+        "🧠 Alles Gute zum Geburtstag! Möge dein neues Lebensjahr frei von Bugs, voller sauberer Commits "
+        "und ohne Merge-Konflikte sein. Möge dein Code kompiliert, deine Tests bestehen und dein Glück "
+        "unendlich rekursiv sein! 🎉👩‍💻"
+    ),
+    "Timestamp": datetime.now().strftime("%d-%m-%Y %H:%M")
+}
+pd.DataFrame([default_message]).to_csv(FILE_NAME, index=False)
 
 # Title
 st.title("Happy 50th Birthday / Alles Gute zum 50. Geburtstag")
@@ -62,15 +73,25 @@ if st.button("Generate Greeting Card / Grußkarte erstellen"):
     if os.path.exists(background_path):
         pdf.image(background_path, x=0, y=0, w=210, h=297)  # A4 size in mm
 
-    pdf.set_font("Arial", size=14)
+    # Use Unicode-compatible font
+    font_path = "DejaVuSans.ttf"
+    if os.path.exists(font_path):
+        pdf.add_font("DejaVu", "", font_path, uni=True)
+        pdf.set_font("DejaVu", size=14)
+    else:
+        pdf.set_font("Arial", size=14)
+
     pdf.set_text_color(0, 0, 0)
     pdf.ln(20)
     pdf.cell(200, 10, txt="Happy 50th Birthday!", ln=True, align="C")
     pdf.ln(10)
 
     for _, row in filtered_data.iterrows():
-        pdf.multi_cell(0, 10, f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n", align="L")
-        pdf.ln(5)
+        try:
+            pdf.multi_cell(0, 10, f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n", align="L")
+            pdf.ln(5)
+        except Exception:
+            continue  # Skip entries that cause encoding errors
 
     pdf.output("greeting_card.pdf")
 
