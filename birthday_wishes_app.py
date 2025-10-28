@@ -1,10 +1,11 @@
+# birthday_wishes_app.py
 import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
 
 # File to store wishes
-FILE_NAME = "birthday_wishes.csv"
+FILE_NAME = "birthday_wishes.csv" 
 
 # Initialize storage
 if not os.path.exists(FILE_NAME):
