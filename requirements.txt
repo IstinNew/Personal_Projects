@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # requirements.txt for Streamlit App Personal Projects
 streamlit
 numpy
@@ -12,19 +11,4 @@ fpdf2
 PyMuPDF
 Pillow
 email-validator
-=======
-# requirements.txt for Streamlit App Personal Projects
-streamlit
-numpy
-pandas
-matplotlib
-scipy
-seaborn
-openpyxl
-plotly
-fpdf2
-PyMuPDF
-Pillow
-email-validator
->>>>>>> 4e553fe749564877db64ff22ffb604dfe0ad32b8
-python-dotenv
+python-dotenv 
