@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 import os
 import fitz  # PyMuPDF
+import textwrap
 
 # File to store wishes
 FILE_NAME = "birthday_wishes.csv"
@@ -81,23 +82,32 @@ if st.button("Generate Greeting Card / Grußkarte erstellen"):
         rect = fitz.Rect(0, 0, page.rect.width, page.rect.height)
         page.insert_image(rect, filename=background_path)
 
-    # Starting position
-    x, y = 50, 50
-    line_height = 20
+    # Layout parameters
+    margin_x = 50
+    margin_y = 50
+    max_width = page.rect.width - 2 * margin_x
+    x, y = margin_x, margin_y
+    line_height = 16
+    font_size = 12
 
     # Title
     page.insert_text((x, y), "Happy 50th Birthday!", fontsize=16, fontname="helv", fill=(0, 0, 0))
     y += line_height * 2
 
-    # Add each wish
+    # Add each wish with wrapped text
     for _, row in filtered_data.iterrows():
         message = f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n"
         for line in message.split('\n'):
-            page.insert_text((x, y), line, fontsize=12, fontname="helv", fill=(0, 0, 0))
-            y += line_height
-            if y > page.rect.height - 50:
-                page = doc.new_page()
-                y = 50
+            wrapped_lines = textwrap.wrap(line, width=80)
+            for wrapped_line in wrapped_lines:
+                page.insert_text((x, y), wrapped_line, fontsize=font_size, fontname="helv", fill=(0, 0, 0))
+                y += line_height
+                if y > page.rect.height - margin_y:
+                    page = doc.new_page()
+                    if os.path.exists(background_path):
+                        rect = fitz.Rect(0, 0, page.rect.width, page.rect.height)
+                        page.insert_image(rect, filename=background_path)
+                    y = margin_y
 
     # Save PDF
     pdf_path = "greeting_card.pdf"
