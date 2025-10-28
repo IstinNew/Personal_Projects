@@ -8,7 +8,7 @@ from fpdf import FPDF
 # File to store wishes
 FILE_NAME = "birthday_wishes.csv"
 
-# Clear previous messages and insert default message
+# Default message from The Dev Team
 default_message = {
     "Name": "The Dev Team",
     "Wish": (
@@ -21,7 +21,14 @@ default_message = {
     ),
     "Timestamp": datetime.now().strftime("%d-%m-%Y %H:%M")
 }
-pd.DataFrame([default_message]).to_csv(FILE_NAME, index=False)
+
+# Initialize storage and insert default message only if file is empty
+if not os.path.exists(FILE_NAME):
+    pd.DataFrame([default_message]).to_csv(FILE_NAME, index=False)
+else:
+    existing_data = pd.read_csv(FILE_NAME)
+    if existing_data.empty:
+        pd.DataFrame([default_message]).to_csv(FILE_NAME, index=False)
 
 # Title
 st.title("Happy 50th Birthday / Alles Gute zum 50. Geburtstag")
