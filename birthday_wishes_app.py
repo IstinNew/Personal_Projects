@@ -95,7 +95,8 @@ if st.button("Generate Greeting Card / Grußkarte erstellen"):
 
     for _, row in filtered_data.iterrows():
         try:
-            pdf.multi_cell(0, 10, f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n", align="L")
+            text = f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n"
+            pdf.multi_cell(0, 10, txt=text, align="L")
             pdf.ln(5)
         except Exception:
             continue  # Skip entries that cause encoding errors
