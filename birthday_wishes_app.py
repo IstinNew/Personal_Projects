@@ -42,7 +42,7 @@ if not data.empty:
 else:
     st.info("No wishes yet. Be the first to send one! / Noch keine Wünsche. Seien Sie der Erste!")
 
-# Download all wishes
+# Download all wishes as text
 if not data.empty:
     wishes_text = "\n\n".join([f"{row['Name']}:\n{row['Wish']}" for _, row in data.iterrows()])
     st.download_button("Download All Wishes / Alle Wünsche herunterladen",
@@ -56,6 +56,15 @@ if st.button("Generate Greeting Card / Grußkarte erstellen"):
     pdf.cell(200, 10, txt="Happy 50th Birthday!", ln=True, align="C")
     pdf.ln(10)
     for _, row in data.iterrows():
-        pdf.multi_cell(0, 10, f"{row['Name']}:\n{row['Wish']}\n", align="L")
+        pdf.multi_cell(0, 10, f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n", align="L")
+        pdf.ln(5)
     pdf.output("greeting_card.pdf")
-    st.success("Greeting card generated! Check greeting_card.pdf")
+
+    # Offer the PDF for download
+    with open("greeting_card.pdf", "rb") as f:
+        pdf_bytes = f.read()
+
+    st.download_button("📥 Download Greeting Card / Grußkarte herunterladen",
+                       data=pdf_bytes,
+                       file_name="greeting_card.pdf",
+                       mime="application/pdf")
