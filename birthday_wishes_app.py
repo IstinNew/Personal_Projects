@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
-from fpdf import FPDF
+import fitz  # PyMuPDF
 
 # File to store wishes
 FILE_NAME = "birthday_wishes.csv"
@@ -70,40 +70,40 @@ if not filtered_data.empty:
     st.download_button("Download All Wishes / Alle Wünsche herunterladen",
                        wishes_text, file_name="birthday_wishes.txt")
 
-# Greeting card generation (PDF)
+# Greeting card generation (PDF) using PyMuPDF
 if st.button("Generate Greeting Card / Grußkarte erstellen"):
-    pdf = FPDF()
-    pdf.add_page()
+    doc = fitz.open()
+    page = doc.new_page()
 
     # Optional background image
     background_path = "background.jpg"
     if os.path.exists(background_path):
-        pdf.image(background_path, x=0, y=0, w=210, h=297)  # A4 size in mm
+        rect = fitz.Rect(0, 0, page.rect.width, page.rect.height)
+        page.insert_image(rect, filename=background_path)
 
-    # Use Unicode-compatible font
-    font_path = "DejaVuSans.ttf"
-    if os.path.exists(font_path):
-        pdf.add_font("DejaVu", "", font_path, uni=True)
-        pdf.set_font("DejaVu", size=14)
-    else:
-        pdf.set_font("Arial", size=14)
+    # Starting position
+    x, y = 50, 50
+    line_height = 20
 
-    pdf.set_text_color(0, 0, 0)
-    pdf.ln(20)
-    pdf.cell(200, 10, txt="Happy 50th Birthday!", ln=True, align="C")
-    pdf.ln(10)
+    # Title
+    page.insert_text((x, y), "Happy 50th Birthday!", fontsize=16, fontname="helv", fill=(0, 0, 0))
+    y += line_height * 2
 
+    # Add each wish
     for _, row in filtered_data.iterrows():
-        try:
-            text = f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n"
-            pdf.multi_cell(0, 10, txt=text, align="L")
-            pdf.ln(5)
-        except Exception:
-            continue  # Skip entries that cause encoding errors
+        message = f"{row['Name']} ({row['Timestamp']}):\n{row['Wish']}\n"
+        for line in message.split('\n'):
+            page.insert_text((x, y), line, fontsize=12, fontname="helv", fill=(0, 0, 0))
+            y += line_height
+            if y > page.rect.height - 50:
+                page = doc.new_page()
+                y = 50
 
-    pdf.output("greeting_card.pdf")
+    # Save PDF
+    pdf_path = "greeting_card.pdf"
+    doc.save(pdf_path)
 
-    with open("greeting_card.pdf", "rb") as f:
+    with open(pdf_path, "rb") as f:
         pdf_bytes = f.read()
 
     st.download_button("📥 Download Greeting Card / Grußkarte herunterladen",
