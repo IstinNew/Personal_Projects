@@ -6,6 +6,9 @@ import os
 import fitz  # PyMuPDF
 import textwrap
 
+# Add copyright at the top of the sidebar
+st.sidebar.markdown("© 2025 Shayak Majumder All rights reserved. | Licensed under MIT License")
+
 # File to store wishes
 FILE_NAME = "birthday_wishes.csv"
 
@@ -32,9 +35,9 @@ else:
         pd.DataFrame([default_message]).to_csv(FILE_NAME, index=False)
 
 # Title
-st.title("Happy 50th Birthday / Alles Gute zum 50. Geburtstag")
-st.write("Leave your wishes for our line manager's milestone birthday! / "
-         "Hinterlassen Sie Ihre Wünsche zum runden Geburtstag unserer Linienmanagerin!")
+st.title("Happy Birthday / Alles Gute zum Geburtstag")
+st.write("Leave your wishes here! / "
+         "Hinterlassen Sie Ihre Wünsche hier!")
 
 # Form for input
 with st.form("wish_form"):
