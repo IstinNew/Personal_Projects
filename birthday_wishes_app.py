@@ -94,7 +94,7 @@ if st.button("Generate Greeting Card / Grußkarte erstellen"):
     font_size = 12
 
     # Title
-    page.insert_text((x, y), "Happy 50th Birthday!", fontsize=16, fontname="helv", fill=(0, 0, 0))
+    page.insert_text((x, y), "Happy Birthday!", fontsize=16, fontname="helv", fill=(0, 0, 0))
     y += line_height * 2
 
     # Add each wish with wrapped text
